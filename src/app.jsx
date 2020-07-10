@@ -21,8 +21,8 @@ const sleep = (time) => new Promise((resolve) => {
 class App extends Component {
   componentDidMount () {}
 
-  componentDidMount () {
-    sleep(1000)
+  async componentDidMount () {
+    await sleep(1000)
     console.log('done')
   }
 
