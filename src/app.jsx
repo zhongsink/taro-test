@@ -9,10 +9,22 @@ const store = {
   counterStore
 }
 
+const sleep = (time) => new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('sleep')
+    resolve()
+  } , time)
+}).finally(() => {
+  console.log('sleep finally')
+})
+
 class App extends Component {
   componentDidMount () {}
 
-  componentDidShow () {}
+  componentDidMount () {
+    sleep(1000)
+    console.log('done')
+  }
 
   componentDidHide () {}
 
