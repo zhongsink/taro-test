@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Provider } from 'mobx-react'
-
+import { configure } from 'mobx'
 import counterStore from './store/counter'
 
 import './app.less'
+
+configure({ enforceActions: 'observed' })
+counterStore.counter++ 
 
 const store = {
   counterStore
@@ -21,8 +24,8 @@ const sleep = (time) => new Promise((resolve) => {
 class App extends Component {
   componentDidMount () {}
 
-  async componentDidMount () {
-    await sleep(1000)
+  componentDidMount () {
+    sleep(1000)
     console.log('done')
   }
 
